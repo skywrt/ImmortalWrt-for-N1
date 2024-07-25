@@ -1,6 +1,6 @@
 config amlogic 'config'
 	option enable '1'
-	option amlogic_firmware_repo 'https://github.com/nantayo/N1-OpenWrt'
+	option amlogic_firmware_repo 'https://github.com/skywrt/ImmortalWrt-for-N1'
 	option amlogic_firmware_tag 'OpenWrt'
 	option amlogic_firmware_suffix '.img.xz'
 	option amlogic_kernel_path 'https://github.com/breakings/OpenWrt'
