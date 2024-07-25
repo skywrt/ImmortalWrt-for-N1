@@ -1,3 +1,8 @@
+# ImmortalWrt-for-N1
+
+## 项目原作者：https://github.com/nantayo/N1-OpenWrt
+
+
 # 项目简介
 本固件适配斐讯 N1 旁路由模式，追求轻量（请注意：不具备 PPPoE、WiFi 相关功能）。<br>
 固件包含默认皮肤、完整 IPv6 支持，以及下列 luci-app：<br>
