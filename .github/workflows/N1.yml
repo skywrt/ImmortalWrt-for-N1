@@ -99,7 +99,7 @@ jobs:
         PACKAGE_SOC: diy
         GZIP_IMGS: .xz
         SCRIPT_DIY_PATH: N1/mk_s905d_n1.sh
-        WHOAMI: nantayo
+        WHOAMI: skywrt
         SW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         ENABLE_WIFI_K510: 0
@@ -108,21 +108,19 @@ jobs:
       uses: softprops/action-gh-release@master
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
         tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
         body: |
           首次使用建议全新刷写
           * 基本信息
-          IP: 192.168.2.2
+          IP: 192.168.1.4
           账户: root
           密码: password
 
     - name: Delete old releases
-      uses: dev-drprasad/delete-older-releases@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: Mattraks/delete-workflow-runs@v2
       with:
-        keep_latest: 2
-        delete_tags : true
+        retain_days: 0
+        keep_minimum_runs: 0
