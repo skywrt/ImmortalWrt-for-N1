@@ -6,7 +6,7 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'
+        default: 'true'
   schedule:
     - cron: "0 0 */3 * *"
 
@@ -57,6 +57,7 @@ jobs:
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
+        echo "src-git mihomo https://github.com/morytyann/OpenWrt-mihomo.git;main" >> "feeds.conf.default"
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
