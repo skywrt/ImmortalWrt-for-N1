@@ -104,13 +104,8 @@ jobs:
         SFE_FLOW: 0
         ENABLE_WIFI_K510: 0
 
-    - name: Debug file info
-      run: |
-        echo "Files to upload:"
-        ls -lh ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
-
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@master
+      uses: softprops/action-gh-release@v2
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
